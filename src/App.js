@@ -8,6 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           "MI PRIMER E-COMMERS EN REACT"
+          Desafio 2
         </p>
         
       </header>
