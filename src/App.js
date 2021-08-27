@@ -11,7 +11,7 @@ class App extends Component{
        <h1>Tienda Urbana</h1>
     
       <NavBar/>
-      <h2>OFERTAS</h2>
+      
      
      </div>
 
