@@ -10,5 +10,12 @@ h2{
 /*para darle color al fondo del menu*/
 .bg-marino{
   background-color: #17202A;
+  
+  }
+
+  .CarritoCompras{
+    width: 20%;
+    margin: auto 3rem;
+
   }
   
