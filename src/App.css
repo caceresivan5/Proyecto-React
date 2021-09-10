@@ -16,6 +16,13 @@ h2{
   .CarritoCompras{
     width: 20%;
     margin: auto 3rem;
-
+  }
+  .contadorCarrito label{
+   display: block;
+   text-align: center;
+   font-size: 2rem;
+  }
+  .BotonItemCount{
+    text-align: center;
   }
   
