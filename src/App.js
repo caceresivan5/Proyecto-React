@@ -10,7 +10,7 @@ class App extends Component{
     return(
      <div className = "root"> 
 
-       <h1>Tienda Urbana</h1>
+       <h1>Game Store</h1>
 
       <NavBar/> {/* Componente menu */}
 

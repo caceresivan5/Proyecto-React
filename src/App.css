@@ -25,4 +25,17 @@ h2{
   .BotonItemCount{
     text-align: center;
   }
+  .cardJuegos{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .cardJuego{
+    margin: 1rem;
+  }
+  .cardNombre{
+    text-align: center;
+    margin: 0 auto;
+  }
+  
   

@@ -17,10 +17,10 @@ const NavBar = () =>{
   <NavbarCollapse className="justify-content-center">
   <Nav >
   <Nav.Link href="#">HOME</Nav.Link>
-     <NavDropdown title="PRODUCTOS" >
-       <NavDropdown.Item href="#">ZAPATILLAS</NavDropdown.Item>
-       <NavDropdown.Item href="#">CAMPERAS</NavDropdown.Item>
-       <NavDropdown.Item href="#">REMERAS</NavDropdown.Item>
+     <NavDropdown title="CONSOLA" >
+       <NavDropdown.Item href="#">PS3</NavDropdown.Item>
+       <NavDropdown.Item href="#">PS4</NavDropdown.Item>
+       <NavDropdown.Item href="#">PC</NavDropdown.Item>
      </NavDropdown>
      <Nav.Link href="#">OFERTAS</Nav.Link>
      <Nav.Link href="#">CONTACTOS</Nav.Link>
