@@ -21,7 +21,7 @@ const juegosArray = [
           },3000)
           
       }else{
-          rej('404')
+          rej('404..')
       }
   })
 /* greeting es la props que recibe del padre.la informacion que trae la inyecta en el parrafo */
