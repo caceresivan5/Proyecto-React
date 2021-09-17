@@ -22,3 +22,13 @@ export const juegosArray = [
           rej('404..')
       }
   })
+
+
+  const JuegosUno = { id: 4, nombre:'Resident Evil 3', portada:'https://www.ecured.cu/images/b/b4/RE_3_Remake_Portada_PS4.jpg', consola: 'PS4', precio: '8500'}
+
+  export const getJuegosUno = new Promise((resolve)=>{
+      //acciones asincronicas
+      setTimeout(()=>{
+          resolve(JuegosUno)
+      },2000)
+  })

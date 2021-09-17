@@ -3,6 +3,7 @@ import { Component } from 'react';
 import './App.css';
 import ItemListContainer from '../src/component/ItemListContainer';
 import NavBar from './component/NavBar';
+import ItemDetailContainer from './component/ItemDetailContainer';
 
 
 class App extends Component{
@@ -15,7 +16,7 @@ class App extends Component{
       <NavBar/> {/* Componente menu */}
 
       <ItemListContainer greeting = "Hola Soy un ItemListContainer "/> {/* Componente que pasa una props */}
-      
+      <ItemDetailContainer/>
 
      </div>
 

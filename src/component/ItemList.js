@@ -4,7 +4,7 @@ import Item from "./Item"
  const ItemList = ({ juegosArray})=>{
     return(
         <>
-        {juegosArray.map(juego =><Item juego = {juego} /> )}
+        {juegosArray.map(juego => <Item juego = {juego} /> )}
 
         </>
     )
