@@ -5,6 +5,7 @@ import './App.css';
 import ItemListContainer from '../src/component/ItemListContainer';
 import NavBar from './component/NavBar';
 import ItemDetailContainer from './component/ItemDetailContainer';
+import Cart from './component/Cart';
 
 
 function App (){
@@ -29,7 +30,7 @@ function App (){
       </Route>
 
       <Route exact path = '/detalle' component = {ItemDetailContainer}/> {/* SEGUNDA FORMA PARA DEFINIR EL ENRUTADO */}
-
+      <Route exact path = '/cart' component = {Cart} />
       </Switch>
      </div>
 

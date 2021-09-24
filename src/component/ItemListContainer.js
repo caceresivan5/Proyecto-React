@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ItemCount from '../component/ItemCount'
+
 import { getJuegos } from '../utils/Mock';
 import { juegosArray } from '../utils/Mock';
 import  ItemList  from '../component/ItemList';
@@ -18,10 +18,7 @@ import { useParams } from 'react-router'
     const { idConsola } = useParams() //para capturar la URL
     console.log(idConsola)
 
-//creo un alert
-const onAdd = (cantidad)=>{
-    alert(`AGREGASTE ${cantidad} PRODUCTOS AL CARRITO`)
-}
+
  useEffect(()=>{
      
         getJuegos
@@ -47,7 +44,7 @@ const onAdd = (cantidad)=>{
             { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : < ItemList juegosArray = {juegosArray} /> }
             </div>
 
-            <ItemCount stock = { 10 } initial = { 1 } onAdd = {onAdd} />
+           
         </div>
             
     )

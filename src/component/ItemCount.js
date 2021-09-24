@@ -1,8 +1,11 @@
 import {useState} from "react";
+import { Link } from "react-router-dom";
 
 //creo el ItemCount y le paso los parametros
 const ItemCount = ( { stock, initial, onAdd} ) =>{
     const [count, setCount] = useState(initial)
+
+    const [cambiarBoton, setCambiarBoton] = useState(true)
     //creo una funcion para sumar
     const sumar = () => {
         if(count < stock){
@@ -19,6 +22,7 @@ const ItemCount = ( { stock, initial, onAdd} ) =>{
 
     const agregarCarrito = () =>{
         onAdd(count)
+        setCambiarBoton(false)
     }
     return(
         <div> {/* creo el HTML */}
@@ -30,8 +34,23 @@ const ItemCount = ( { stock, initial, onAdd} ) =>{
 
             <div className = "BotonItemCount">
             <button onClick = {sumar} > + </button>
+
+            { cambiarBoton 
+            ?  
             <button onClick = {agregarCarrito} > AGREGAR AL CARRITO </button>
+            : 
+            <Link to={'/cart'} >
+             <button> FINALIZAR COMPRA </button>
+            </Link>
+            }
+            
             <button onClick = {restar} > - </button>
+            <div>
+            <Link to={'/'} >
+             <button> SEGUIR COMPRANDO </button>
+            </Link>
+
+            </div>
             </div>
 
         </div>
