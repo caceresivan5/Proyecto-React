@@ -1,7 +1,9 @@
 import {useState  } from "react";
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({DetalleJuego}) =>{
+
+function ItemDetail  ({DetalleJuego}) {
+    
 
     const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
 

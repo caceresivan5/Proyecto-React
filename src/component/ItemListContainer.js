@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { getJuegos } from '../utils/Mock';
-import { juegosArray } from '../utils/Mock';
+
 import  ItemList  from '../component/ItemList';
 import { useParams } from 'react-router'
 
@@ -9,9 +9,9 @@ import { useParams } from 'react-router'
 
 
 /* greeting es la props que recibe del padre.la informacion que trae la inyecta en el parrafo */
- function ItemListContainer ( { greeting } ) { 
-    const [juegos, setJuegos] = useState([])
-   console.log(juegos)
+ function ItemListContainer ( { greeting} ) { 
+    const [juegos, setJuegos] = useState()
+
 
     const [cargando, setCargando] = useState(true)
 
@@ -26,7 +26,7 @@ import { useParams } from 'react-router'
             if(idConsola){
             const filtro = dataJuegos.filter((prod)=>prod.consola === idConsola)
             setJuegos(filtro)
-            console.log(filtro)
+            
            
              }else{
                  setJuegos(dataJuegos)
@@ -41,7 +41,7 @@ import { useParams } from 'react-router'
         <div>
             <p> { greeting } </p>
             <div className='cardJuegos'>
-            { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : < ItemList juegosArray = {juegosArray} /> }
+            { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : < ItemList juegos = {juegos} /> }
             </div>
 
            

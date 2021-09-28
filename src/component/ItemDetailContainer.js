@@ -1,21 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import { getJuegosUno } from '../utils/Mock';
-import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router';
+import ItemDetail from '../component/ItemDetail';
+import { getJuegos } from '../utils/Mock';
 
 
-const ItemDetailContainer = () =>{
-    const [DetalleJuego, setDetalleJuego] = useState({})
+
+function ItemDetailContainer () {
+    const [DetalleJuego, setDetalleJuego] = useState()
+    const [cargando, setCargando] = useState(true)
+   
+   
+
+    const { idItem } = useParams() //para capturar la URL
     useEffect(()=>{
 
-       getJuegosUno //promesa
-       //para saber que me devuelve la promesa .then(resp => console.log(resp))
-
-       .then(resp => setDetalleJuego(resp))
-     }, [])
+        getJuegos
+        .then((datadetalle) =>{
+            if(idItem){
+            const idFiltrado = datadetalle.filter((prod)=>(prod.id) === parseInt(idItem))
+            
+            setDetalleJuego(idFiltrado)
+            
+           
+             }else{
+                setDetalleJuego(datadetalle)
+            }
+        })
+        .catch(error => console.log(error))
+        .finally(()=>setCargando(false))
+        
+    
+ }, [ idItem ]);
+ 
 
     return(
         <div>
-            <ItemDetail DetalleJuego = {DetalleJuego}/>
+          { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : DetalleJuego &&  <ItemDetail  DetalleJuego={DetalleJuego[0]} />}
+        
         </div>
     )
 }

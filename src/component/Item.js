@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 const Item = ({juego}) =>{
     return(
@@ -9,9 +9,11 @@ const Item = ({juego}) =>{
         <img src = {juego.portada} className='w-100' alt='portada'></img>
         </div>
         <div className = 'card-footer'>
-            <Link to={'/detalle'}>
-            <button className='btn btn-outline-dark  btn-block' >DETALLE</button> 
-            </Link>
+            
+            <button className='btn btn-outline-dark  btn-block' >
+                <a href={`/item/${juego.id}`}>DETALLE</a>
+            </button> 
+            
            
         </div>
         

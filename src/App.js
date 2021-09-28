@@ -29,7 +29,12 @@ function App (){
         <ItemListContainer/>
       </Route>
 
-      <Route exact path = '/detalle' component = {ItemDetailContainer}/> {/* SEGUNDA FORMA PARA DEFINIR EL ENRUTADO */}
+      
+
+      <Route exact path='/consola/:idConsola'>
+        <ItemListContainer/>
+      </Route>
+      <Route exact path = '/item/:idItem' component = {ItemDetailContainer}/> {/* SEGUNDA FORMA PARA DEFINIR EL ENRUTADO */}
       <Route exact path = '/cart' component = {Cart} />
       </Switch>
      </div>

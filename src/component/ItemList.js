@@ -1,10 +1,10 @@
 import React from "react"
 import Item from "./Item"
 
- const ItemList = ({ juegosArray})=>{
+ const ItemList = ({ juegos})=>{
     return(
         <>
-        {juegosArray.map(juego => <Item juego = {juego} /> )}
+        {juegos.map(juego => <Item juego = {juego} /> )}
 
         </>
     )
