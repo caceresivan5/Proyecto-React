@@ -1,4 +1,7 @@
-import {useState  } from "react";
+import {useState, useContext  } from "react";
+import { contextApp } from "../App";
+import { useCartContext } from "./cartContext";
+
 import ItemCount from "./ItemCount";
 
 
@@ -7,11 +10,15 @@ function ItemDetail  ({DetalleJuego}) {
 
     const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
 
+   
+    const {addToCart} = useCartContext()
+    
+    const {state} = useContext(contextApp)
     const onAdd = (cantidad)=>{
         console.log(cantidad)
-        setCantidadSeleccionada(cantidad)
+        addToCart( {item: DetalleJuego, Cantidad: cantidad} )
     }
-    console.log(cantidadSeleccionada)
+    
     return(
         <div>
     
