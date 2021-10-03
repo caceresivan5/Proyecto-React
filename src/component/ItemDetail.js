@@ -32,13 +32,10 @@ function ItemDetail  ({DetalleJuego}) {
             <p> Consola : {DetalleJuego.consola}</p>
             <p> Precio : {DetalleJuego.precio}</p>
         </div>
-       
+        <ItemCount stock = { 10 } initial = { 1 } onAdd = {onAdd} />
         </div>
-
-            
-            
             </div>
-            <ItemCount stock = { 10 } initial = { 1 } onAdd = {onAdd} />
+
         </div>
     )
 }

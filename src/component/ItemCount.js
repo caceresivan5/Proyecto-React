@@ -26,12 +26,11 @@ const ItemCount = ( { stock, initial, onAdd} ) =>{
     }
     return(
         <div> {/* creo el HTML */}
-            <h1> ItemCount</h1>
-            
             <div className = "contadorCarrito">
-            <button onClick = {sumar} > + </button>
+                <button  onClick = {restar} > - </button> 
             <label >{count}</label>
-            <button onClick = {restar} > - </button>
+            <button  onClick = {sumar} > + </button>
+               
             </div>
 
             <div className = "BotonItemCount">
@@ -50,8 +49,6 @@ const ItemCount = ( { stock, initial, onAdd} ) =>{
             </Link>
             </div>
             }
-            
-            
             
             </div>
 
