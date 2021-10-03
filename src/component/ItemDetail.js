@@ -15,7 +15,7 @@ function ItemDetail  ({DetalleJuego}) {
     
     const {state} = useContext(contextApp)
     const onAdd = (cantidad)=>{
-        console.log(cantidad)
+        setCantidadSeleccionada(cantidad)
         addToCart( {item: DetalleJuego, Cantidad: cantidad} )
     }
     
