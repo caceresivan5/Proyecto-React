@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 const Item = ({juego}) =>{
     return(
@@ -11,7 +11,9 @@ const Item = ({juego}) =>{
         <div className = 'card-footer'>
             
             <button className='btn btn-outline-dark  btn-block' >
-                <a href={`/item/${juego.id}`}>DETALLE</a>
+                <Link to={`/item/${juego.id}`}>
+                DETALLE
+                </Link>
             </button> 
             
            
