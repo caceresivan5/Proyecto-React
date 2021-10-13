@@ -24,6 +24,7 @@ const ItemCount = ( { stock, initial, onAdd} ) =>{
         onAdd(count)
         setCambiarBoton(false)
     }
+  
     return(
         <div> {/* creo el HTML */}
             <div className = "contadorCarrito">

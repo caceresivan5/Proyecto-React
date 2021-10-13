@@ -14,7 +14,6 @@ const ItemDetail = ({DetalleJuego})  =>  {
     const onAdd = (cantidad)=>{
         addToCart( {itemCart: DetalleJuego, Cantidad: cantidad} )
     }
-    console.log(addToCart)
     return(
         <div>
     

@@ -3,33 +3,43 @@ import { useCartContext } from "./cartContext";
 
 
 
+
 const Cart = () => {
- const {carList} = useCartContext() 
+ const {carList, BorrarItemCarrito, precioTotal, CantidadProd} = useCartContext() 
  console.log(carList)
     return(
         <div>
             <center>
                 <h2>CARRITO DE COMPRAS</h2>
-                <div className='tabla'>
-                <th>
+  
                 { carList.map(Item => 
-
-                <div key={Item.id} > 
-                <h2> {Item.itemCart.nombre} </h2> 
-                </div>) }
-                </th>
-                <th>
-                { carList.map(Item => 
-                <div key={Item.id} >
+                
+                <div key={Item.id} className='tabla' > 
+                
+                <th> 
                 <img src = {Item.itemCart.portada} className='imagenDetalle' alt='portada'></img>
-                </div>
-                ) }
                 </th>
 
+                <th> 
+                <h3> {Item.itemCart.nombre} </h3> 
+                </th>
+
+                <th> 
+                 <p>Precio unitario: $ {Item.itemCart.precio}</p>
+                 <p>Unidades: {CantidadProd(Item)}</p>    
+                </th>
+
+                <th> 
+                <button onClick={()=>BorrarItemCarrito(Item)} >Borrar</button>
                 
+                </th>
+
+                </div>) }
+
                 
-                </div>
+                <h3 className='totalCompra'> Total de la Compra $ { precioTotal()} </h3> 
                 
+            
                 
             </center>
         </div>

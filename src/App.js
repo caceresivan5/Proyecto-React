@@ -30,7 +30,7 @@ function App (){
       <Switch> 
 
         <Route exact path = '/'> 
-      <ItemListContainer greeting = "Hola Soy un ItemListContainer "/> 
+      <ItemListContainer greeting = " JUEGOS "/> 
       </Route>
 
       <Route exact path='/consola/:idConsola' component= {ItemListContainer}>

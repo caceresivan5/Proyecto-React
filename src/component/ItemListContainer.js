@@ -39,7 +39,9 @@ import { useParams } from 'react-router'
 
     return (
         <div>
-            <p> { greeting } </p>
+            <center> 
+            <h2> { greeting } </h2>
+            </center>
             <div className='cardJuegos'>
             { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : < ItemList juegos = {juegos} /> }
             </div>

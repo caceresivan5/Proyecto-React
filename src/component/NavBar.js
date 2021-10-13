@@ -6,11 +6,13 @@ import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import CartWidget from './CarWidget';
 import { Link } from 'react-router-dom';
+import { useCartContext } from './cartContext';
 
 
 
 export const NavBar = (props) =>{
   const{count} = props
+  const { AcumuladorCart } = useCartContext()
     return (
         <div>
      
@@ -35,7 +37,9 @@ export const NavBar = (props) =>{
   </NavbarCollapse>
 
   <Link exact to='/cart'>
+  
   <CartWidget count = {count}/> {/* CARRITO DE COMPRAS */}
+  { AcumuladorCart () }
   </Link>
   
  </Navbar>

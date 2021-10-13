@@ -7,39 +7,46 @@ import { useState, createContext, useContext } from "react";
 export default function CartContextProvider ({children}){ //con children estoy tomando por props los hijos en la app
 
     const [carList, setCarList] = useState([])
+    
 
-    /*function addToCart(itemCart){
-        setCarList([...carList, itemCart])
-    }
-    */
-
-    const addToCart = (data) =>{
+    const addToCart = (DatoCarrito) =>{ 
         
         const prodCart = [...carList]
-        if(prodCart.some(i => i.itemCart.id === data.itemCart.id)){
-            prodCart.find( (i => i.itemCart.id === data.itemCart.id) ).Cantidad += data.Cantidad
+        if(prodCart.some(i => i.itemCart.id === DatoCarrito.itemCart.id)){
+            prodCart.find( (i => i.itemCart.id === DatoCarrito.itemCart.id) ).Cantidad += DatoCarrito.Cantidad
             setCarList(prodCart)
         }else{
-            setCarList([...carList, data])
+            setCarList([...carList, DatoCarrito])
         }
     }
 
-
-
-
-
-    function BorrarLista(){
-        carList([])
+    const BorrarItemCarrito = (DatoCarrito2) =>{
+        const BorrarProd = carList.filter((prod) => prod.itemCart.id !== DatoCarrito2.itemCart.id);
+        setCarList([...BorrarProd])
     }
 
-
+    const AcumuladorCart =()=>{
+        return carList.reduce((acumulador, Valor) => acumulador + Valor.Cantidad, 0)
+    }
+    const precioTotal = () =>{
+        return carList.reduce((acumulador, Valor)=>(acumulador + (Valor.Cantidad * Valor.itemCart.precio)), 0)
+    }
+    const CantidadProd =(DatoCarrito)=>{
+        return DatoCarrito.Cantidad
+    }
+  
     
-    console.log(carList)
+    
+
     return(
         <cartContext.Provider value={{
             carList,
             addToCart,
-            BorrarLista
+            BorrarItemCarrito,
+            AcumuladorCart,
+            CantidadProd,
+            
+            precioTotal
         }}>
 
             {children}
