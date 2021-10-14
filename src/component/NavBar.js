@@ -24,12 +24,13 @@ export const NavBar = (props) =>{
    
     <Link exact to='/'>HOME</Link>
      <NavDropdown title="CONSOLA" className='Secciones' >
+        <div className='Secciones categoriasMenu'>
        <Link exact to='/consola/PS4'>PS4</Link>
-      
-       <Link exact to='/consola/PS3'>PS3</Link>
        
+       <Link exact to='/consola/PS3'>PS3</Link>
+      
        <Link exact to='/consola/PC'>PC</Link>
-
+       </div>
      </NavDropdown>
      <Nav.Link href="#">CONTACTOS</Nav.Link>
     
@@ -37,9 +38,8 @@ export const NavBar = (props) =>{
   </NavbarCollapse>
 
   <Link exact to='/cart'>
-  
   <CartWidget count = {count}/> {/* CARRITO DE COMPRAS */}
-  { AcumuladorCart () }
+   <h3>{AcumuladorCart()}</h3>
   </Link>
   
  </Navbar>

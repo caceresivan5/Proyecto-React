@@ -29,12 +29,19 @@ export default function CartContextProvider ({children}){ //con children estoy t
         return carList.reduce((acumulador, Valor) => acumulador + Valor.Cantidad, 0)
     }
     const precioTotal = () =>{
-        return carList.reduce((acumulador, Valor)=>(acumulador + (Valor.Cantidad * Valor.itemCart.precio)), 0)
+       
+            return carList.reduce((acumulador, Valor)=>(acumulador + (Valor.Cantidad * Valor.itemCart.precio)), 0)  
+        
+
     }
+
     const CantidadProd =(DatoCarrito)=>{
         return DatoCarrito.Cantidad
     }
-  
+
+    function borrarCarrito () {
+        setCarList([])
+    }
     
     
 
@@ -45,7 +52,7 @@ export default function CartContextProvider ({children}){ //con children estoy t
             BorrarItemCarrito,
             AcumuladorCart,
             CantidadProd,
-            
+            borrarCarrito,
             precioTotal
         }}>
 
