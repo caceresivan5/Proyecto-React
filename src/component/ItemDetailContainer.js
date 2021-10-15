@@ -1,41 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import ItemDetail from '../component/ItemDetail';
-import { getJuegos } from '../utils/Mock';
 
+import { getFirestore } from '../service/getFirebase';
 
 
 function ItemDetailContainer () {
-    const [DetalleJuego, setDetalleJuego] = useState()
+    const [DetalleJuego, setDetalleJuego] = useState([])
     const [cargando, setCargando] = useState(true)
-   
-   
-
     const { idItem } = useParams() //para capturar la URL
+
     useEffect(()=>{
 
-        getJuegos
-        .then((datadetalle) =>{
-            if(idItem){
-            const idFiltrado = datadetalle.filter((prod)=>(prod.id) === parseInt(idItem))
+        if (idItem) {
+            const BaseDeDatos = getFirestore()
+            BaseDeDatos.collection('items').doc(idItem).get()
+            .then(res => {
             
-            setDetalleJuego(idFiltrado)
-            
-           
-             }else{
-                setDetalleJuego(datadetalle)
-            }
-        })
-        .catch(error => console.log(error))
-        .finally(()=>setCargando(false))
-        
-    
- }, [ idItem ]);
+                setDetalleJuego( { id: res.id, ...res.data()})
+            })
+            .catch(error => console.log(error))
+            .finally(()=>setCargando(false))
+        }else{
+            const BaseDeDatos = getFirestore()
+            BaseDeDatos.collection('items').get()
+            .then(res => {
+                setDetalleJuego( res.docs.map(juego => ({id: juego.id, ...juego.data()})))
+            })
+            .catch(error => console.log(error))
+            .finally(()=>setCargando(false))
+        }
+
+ }, [ idItem ])
  
 
     return(
         <div>
-          { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : DetalleJuego &&  <ItemDetail  DetalleJuego={DetalleJuego[0]} />}
+          { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : DetalleJuego &&  <ItemDetail key={DetalleJuego} DetalleJuego={DetalleJuego} />}
         
         </div>
     )

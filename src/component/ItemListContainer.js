@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { getJuegos } from '../utils/Mock';
-
 import  ItemList  from '../component/ItemList';
 import { useParams } from 'react-router'
+import { getFirestore } from '../service/getFirebase';
 
 
 
@@ -16,11 +15,34 @@ import { useParams } from 'react-router'
     const [cargando, setCargando] = useState(true)
 
     const { idConsola } = useParams() //para capturar la URL
-    console.log(idConsola)
+  
 
 
  useEffect(()=>{
-     
+
+    if (idConsola) {
+        
+        const BaseDeDatos = getFirestore()
+        BaseDeDatos.collection('items').where('consola', '==', idConsola).get()
+        .then(resp => {
+            setJuegos(resp.docs.map(juego => ( {id: juego.id, ...juego.data()})))
+        })
+        .catch(error => console.log(error))
+        .finally(()=>setCargando(false))
+    }else{
+        const BaseDeDatos = getFirestore()
+        BaseDeDatos.collection('items').get()
+        .then(resp => {
+            setJuegos(resp.docs.map(juego => ( {id: juego.id, ...juego.data()})))
+        })
+        .catch(error => console.log(error))
+        .finally(()=>setCargando(false))
+
+    }
+
+
+
+     /*
         getJuegos
         .then((dataJuegos) =>{
             if(idConsola){
@@ -34,6 +56,7 @@ import { useParams } from 'react-router'
         })
         .catch(error => console.log(error))
         .finally(()=>setCargando(false))
+        */
     
  }, [ idConsola ]);
 
