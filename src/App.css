@@ -12,6 +12,10 @@ h2{
   background-color: #17202A;
   
   }
+  .root{
+    background-color: #F0F3F4;
+  }
+
 
   .CarritoCompras{
     width: 20%;
@@ -93,9 +97,7 @@ h2{
     width: 30%;
    
   }
-  .Secciones{
-    display: flex;
-  }
+  
   .totalCompra{
     margin: 3rem auto;
   }
@@ -119,14 +121,17 @@ h2{
 }
 .categoriasMenu{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
+
 h3{
   display: inline-block;
+  font-size: 1.5rem;
   background-color: white;
   padding: 0.2rem;
   border-radius: 1rem;
   color: black;
+  
 }
 
 

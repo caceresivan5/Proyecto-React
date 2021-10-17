@@ -1,7 +1,7 @@
 //Bootstrap - Ademas debo instalarlo por terminal
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import CartWidget from './CarWidget';
@@ -10,7 +10,14 @@ import { useCartContext } from './cartContext';
 
 
 
+
 export const NavBar = (props) =>{
+  const EstilosLink = {
+    textDecoration:'none',
+    margin: 'auto 1rem',
+    color:'white',
+    fontSize:'1.5rem'
+  }
   const{count} = props
   const { AcumuladorCart } = useCartContext()
     return (
@@ -22,24 +29,23 @@ export const NavBar = (props) =>{
   <NavbarCollapse className="justify-content-center">
   <Nav >
    
-    <Link exact to='/'>HOME</Link>
-     <NavDropdown title="CONSOLA" className='Secciones' >
-        <div className='Secciones categoriasMenu'>
-       <Link exact to='/consola/PS4'>PS4</Link>
-       
-       <Link exact to='/consola/PS3'>PS3</Link>
-      
-       <Link exact to='/consola/PC'>PC</Link>
+      <div className='d-flex'>
+              
+      <Link exact to='/' style={EstilosLink} >HOME</Link>
+
+       <Link exact to='/consola/PS4' style={EstilosLink}>PS4</Link>
+              
+       <Link exact to='/consola/PS3' style={EstilosLink}>PS3</Link>
+           
+       <Link exact to='/consola/PC' style={EstilosLink}>PC</Link>
        </div>
-     </NavDropdown>
-     <Nav.Link href="#">CONTACTOS</Nav.Link>
     
    </Nav>
   </NavbarCollapse>
 
   <Link exact to='/cart'>
-  <CartWidget count = {count}/> {/* CARRITO DE COMPRAS */}
-   <h3>{AcumuladorCart()}</h3>
+  <CartWidget count = {count} /> {/* CARRITO DE COMPRAS */}
+   <h3 >{AcumuladorCart() }</h3>
   </Link>
   
  </Navbar>

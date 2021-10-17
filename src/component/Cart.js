@@ -32,9 +32,9 @@ const Cart = () => {
                  { (carList.length === 0) 
                  ?
                   <h3 className='totalCompra'> No hay Productos en el Carrito  </h3> 
-                  : 
+                  :
+                  <div>
                <h3 className='totalCompra'> Total de la Compra $ { precioTotal() }  </h3> 
-               }
                 <div className='botonesCarrito'> 
 
                 <button onClick={()=>borrarCarrito()} >BORRAR CARRITO</button>
@@ -43,9 +43,40 @@ const Cart = () => {
                 </Link>
                 
                 </div>    
+    <form>
+
+        <input
+        type='text'
+        placeholder='INGRESE SU NOMBRE'
+        name='NOMBRE'
+        />
+        <input
+        type='text'
+        placeholder='NUMERO DE CELULAR' 
+        name='tel'
+       
+        />
+        <input
+        type='text'
+        placeholder='INGRESE SU E-MAIL'
+        name='mail'
+        />
+         <input
+        type='text'
+        placeholder='CONFIRME SU E-MAIL'
+        name='mail2'
+        />
+        
+    </form>
+            <button onClick=''>FINALIZAR COMPRA</button>
+    </div> 
+            }
             </center>
         </div>
     )
+
+
 }
+
 
 export default Cart

@@ -26,7 +26,9 @@ export default function CartContextProvider ({children}){ //con children estoy t
     }
 
     const AcumuladorCart =()=>{
-        return carList.reduce((acumulador, Valor) => acumulador + Valor.Cantidad, 0)
+        return (
+            carList.reduce((acumulador, Valor) => acumulador + Valor.Cantidad, 0)
+        )
     }
     const precioTotal = () =>{
        
