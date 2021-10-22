@@ -100,6 +100,7 @@ h2{
   
   .totalCompra{
     margin: 3rem auto;
+    background-color: #F0F3F4;
   }
  .detallesCarrito{
    display: flex;
@@ -133,7 +134,14 @@ h3{
   color: black;
   
 }
-
+.validarMail{
+  color: red;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.finalizarCompra{
+  margin: 1rem;
+}
 
 
   

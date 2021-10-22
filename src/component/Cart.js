@@ -1,13 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "./cartContext";
-
-
-
+import firebase from "firebase";
+import 'firebase/firestore'
+import { getFirestore } from "../service/getFirebase";
 
 const Cart = () => {
+
+    const [ datosFormulario, setdatosFormulario ] = useState({
+        name: '',
+        tel: '',
+        mail: ''
+    })
+
  const {carList, BorrarItemCarrito, precioTotal, CantidadProd,borrarCarrito} = useCartContext() 
- 
+
+ function cambioFormulario (e) {
+
+     setdatosFormulario({
+         ...datosFormulario,
+         [e.target.name]: e.target.value
+     })
+ }
+ const botonSubmit = (e)=> {
+     e.preventDefault()
+     let orden = {}
+     orden.date = firebase.firestore.Timestamp.fromDate(new Date())
+     orden.buyer = datosFormulario
+     orden.items = carList.map(cartItem =>{
+         const NombreJuego = cartItem.itemCart.nombre
+         const idJuego = cartItem.itemCart.id
+         const PrecioUnitario = cartItem.itemCart.precio
+         
+         return {idJuego, NombreJuego, PrecioUnitario}
+        })
+        orden.total = precioTotal();
+
+     const BaseDeDatos = getFirestore()
+     BaseDeDatos.collection('orders').add(orden)
+     .then(resp => alert(`SU NUMERO DE ORDEN ES: ${resp.id}`) )
+     .catch(err => console.log(err))
+     .finally(()=>setdatosFormulario(
+        {
+            name: '',
+            tel: '',
+            mail: '',
+           
+        }
+     ))
+ }
     return(
         <div>
             <center className='carrito'>
@@ -43,32 +84,45 @@ const Cart = () => {
                 </Link>
                 
                 </div>    
-    <form>
-
+    <form 
+    onSubmit = {botonSubmit}
+    onChange ={cambioFormulario}
+    >
         <input
         type='text'
         placeholder='INGRESE SU NOMBRE'
-        name='NOMBRE'
+        name='name'
+        value={datosFormulario.name}
+        
         />
         <input
         type='text'
         placeholder='NUMERO DE CELULAR' 
         name='tel'
+        value={datosFormulario.tel}
        
         />
         <input
         type='text'
         placeholder='INGRESE SU E-MAIL'
         name='mail'
+        value={datosFormulario.mail}
         />
          <input
         type='text'
         placeholder='CONFIRME SU E-MAIL'
         name='mail2'
+        
         />
         
-    </form>
-            <button onClick=''>FINALIZAR COMPRA</button>
+    { (datosFormulario.mail === datosFormulario.mail2) 
+                 ?
+                 <button  className='finalizarCompra'>FINALIZAR COMPRA</button>
+                 :
+                 <p className='validarMail'>Complete Correctamente sus Datos para Finalizar la Compra</p> 
+                }
+                </form>
+            
     </div> 
             }
             </center>
