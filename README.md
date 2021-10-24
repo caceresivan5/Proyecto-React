@@ -2,7 +2,7 @@
 
 # DEMO
 
-- Hace Clic en la imagen para ver el DEMO
+- Haciendo clic en la siguiente imagen podras ver la Demo
 
 [![N|Solid](https://www.bluestart.mx/assets/img/iconos/ecommerce.png)](https://eloquent-brahmagupta-caa52c.netlify.app)
 
