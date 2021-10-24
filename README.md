@@ -1,4 +1,4 @@
-# React - Proyecto para Coderhouse ecommers - Game Store -
+## React - Proyecto para Coderhouse ecommers - Game Store -
 
 # DEMO
 
