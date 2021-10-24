@@ -30,10 +30,7 @@ export default function CartContextProvider ({children}){ //con children estoy t
         )
     }
     const precioTotal = () =>{
-       
             return carList.reduce((acumulador, Valor)=>(acumulador + (Valor.Cantidad * Valor.itemCart.precio)), 0)  
-        
-
     }
 
     const CantidadProd =(DatoCarrito)=>{
@@ -44,8 +41,6 @@ export default function CartContextProvider ({children}){ //con children estoy t
         setCarList([])
     }
     
-    
-
     return(
         <cartContext.Provider value={{
             carList,

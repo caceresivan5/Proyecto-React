@@ -36,7 +36,6 @@ const ItemCount = ( { stock, initial, onAdd} ) =>{
 
             <div className = "BotonItemCount">
            
-
             { cambiarBoton 
             ?  
             <button onClick = {agregarCarrito} > AGREGAR AL CARRITO </button>

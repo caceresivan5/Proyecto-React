@@ -1,16 +1,11 @@
 
-
 import { useCartContext } from "./cartContext";
-
 import ItemCount from "./ItemCount";
-
 
 const ItemDetail = ({DetalleJuego})  =>  {
  
     const { addToCart } = useCartContext()
     
-    
-
     const onAdd = (cantidad)=>{
         addToCart( {itemCart: DetalleJuego, Cantidad: cantidad} )
     }

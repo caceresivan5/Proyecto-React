@@ -121,15 +121,12 @@ const Cart = () => {
                  :
                  <p className='validarMail'>Complete Correctamente sus Datos para Finalizar la Compra</p> 
                 }
-                </form>
-            
+                </form>        
     </div> 
             }
             </center>
         </div>
     )
-
-
 }
 
 

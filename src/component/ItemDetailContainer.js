@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import ItemDetail from '../component/ItemDetail';
-
 import { getFirestore } from '../service/getFirebase';
-
 
 function ItemDetailContainer () {
     const [DetalleJuego, setDetalleJuego] = useState([])
@@ -36,8 +34,12 @@ function ItemDetailContainer () {
 
     return(
         <div>
-          { cargando ? <h2 className='cardNombre'>CARGANDO...</h2> : DetalleJuego &&  <ItemDetail key={DetalleJuego} DetalleJuego={DetalleJuego} />}
-        
+          { cargando 
+          ? 
+        <h2 className='cardNombre'>CARGANDO...</h2>
+           :
+        DetalleJuego &&  <ItemDetail key={DetalleJuego} DetalleJuego={DetalleJuego} />
+        }
         </div>
     )
 }
