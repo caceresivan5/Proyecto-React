@@ -1,12 +1,20 @@
-# Getting Started with Create React App
+# React - Proyecto para Coderhouse ecommers - Game Store -
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DEMO
 
-## Available Scripts
+- Hace Clic en la imagen para ver el DEMO
 
-In the project directory, you can run:
+[![N|Solid](https://www.bluestart.mx/assets/img/iconos/ecommerce.png)](https://eloquent-brahmagupta-caa52c.netlify.app)
 
-### `npm start`
+### Installation
+Game-Store  requires [Node.js](https://node.js.org/) to run.
+
+Install the dependencies and devDependencies and start the server.
+
+``` sh
+$ cd game-store
+$ npm install
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
