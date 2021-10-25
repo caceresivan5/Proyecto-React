@@ -6,7 +6,7 @@
 
 [![N|Solid](https://www.bluestart.mx/assets/img/iconos/ecommerce.png)](https://eloquent-brahmagupta-caa52c.netlify.app)
 
-Este es un Proyecto donde se intento aplicar todo el contenido visto durante el curso de React Js.
+Este es un Proyecto donde se aplico todo el contenido visto durante el curso de React Js.
 
 - Duracion 7 Semanas
 - 4hs Semanales
