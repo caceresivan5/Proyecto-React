@@ -64,23 +64,24 @@ const Cart = () => {
                  <p>Precio unitario: $ {Item.itemCart.precio}</p>
                  <p>Unidades: { CantidadProd(Item) }</p>  
                  <p>SubTotal: $ { (CantidadProd(Item))*(Item.itemCart.precio) }</p>
-                <button onClick={()=>BorrarItemCarrito(Item)} >ELIMINAR</button>
-                 </div>   
+                <p onClick={()=>BorrarItemCarrito(Item)} className="eliminar" >ELIMINAR</p>
+                 </div> 
+                 <hr/>
                 </th>
 
                 </div>) }
 
                  { (carList.length === 0) 
                  ?
-                  <h3 className='totalCompra'> No hay Productos en el Carrito  </h3> 
+                  <h4 className='totalCompra'> No hay Productos en el Carrito  </h4> 
                   :
                   <div>
-               <h3 className='totalCompra'> Total de la Compra $ { precioTotal() }  </h3> 
+               <h4 className='totalCompra'> Total de la Compra $ { precioTotal() }  </h4> 
                 <div className='botonesCarrito'> 
 
-                <button onClick={()=>borrarCarrito()} >BORRAR CARRITO</button>
-                <Link to='/'>
-                <button>GALERIA DE JUEGOS</button>
+                <p onClick={()=>borrarCarrito()} className="eliminar">BORRAR CARRITO</p>
+                <Link to='/'  style={{ textDecoration: 'none' }}>
+                <p className="volverGaleria">VOLVER A GALERIA DE JUEGOS</p>
                 </Link>
                 
                 </div>    

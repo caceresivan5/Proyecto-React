@@ -7,6 +7,7 @@ import NavBar from './component/NavBar';
 import ItemDetailContainer from './component/ItemDetailContainer';
 import Cart from './component/Cart';
 import CartContextProvider from './component/cartContext';
+import Footer from './component/Footer';
 
 
 
@@ -40,6 +41,7 @@ function App (){
       <Route exact path = '/item/:idItem' component = {ItemDetailContainer}/> {/* SEGUNDA FORMA PARA DEFINIR EL ENRUTADO */}
       <Route exact path = '/cart' component = {Cart} />
       </Switch>
+      <Footer/>
      </div>
 
      </Router>

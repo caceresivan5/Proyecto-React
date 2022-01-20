@@ -20,12 +20,16 @@ export const NavBar = (props) =>{
     return (
         <div>
      
+  <Link exact to='/cart'>
+  <CartWidget count = {count} /> {/* CARRITO DE COMPRAS */}
+  
+  </Link>
    <Navbar className="justify-content-center" bg='marino' variant="dark" sticky="top" expand="lg" collapseOnSelect>
   <NavbarToggle/>
   <NavbarCollapse className="justify-content-center">
   <Nav >
    
-      <div className='d-flex'>
+      <div className='d-flex justify-content-center p-3'>
               
       <Link exact to='/' style={EstilosLink} >HOME</Link>
 
@@ -39,10 +43,6 @@ export const NavBar = (props) =>{
    </Nav>
   </NavbarCollapse>
 
-  <Link exact to='/cart'>
-  <CartWidget count = {count} /> {/* CARRITO DE COMPRAS */}
-   <h3 >{AcumuladorCart() }</h3>
-  </Link>
   
  </Navbar>
 

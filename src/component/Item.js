@@ -8,7 +8,7 @@ const Item = ({juego}) =>{
         fontSize:'1.3rem'
       }
     return(
-        <div key = {juego.id} className = 'card w-25 mt-3 cardJuego ' > 
+        <div key = {juego.id} className = 'card  mt-3 cardJuego ' > 
         <div className = 'card-header cardNombre'>{juego.nombre}</div>
         <div className = 'card-body'> 
         <img src = {juego.portada} className='w-100' alt='portada'></img>
